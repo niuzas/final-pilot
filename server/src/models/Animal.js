@@ -3,9 +3,21 @@ const Schema = mongoose.Schema;
 
 // Defined Animal Schema
 const AnimalSchema = mongoose.Schema({
-  title: {
+  name: {
     type: String,
     required: true
+  },
+  breed: {
+    type: String,
+    required: true
+  },
+  weight: {
+    type: Number,
+    required: true
+  },
+  birthDate: {
+    type: Date,
+    required: false
   },
   
   }, { timestamps: true });
