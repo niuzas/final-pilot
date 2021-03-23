@@ -32,14 +32,15 @@ export class AnimalManager extends Component {
   };
 
   saveAnimal = () => {
+    console.log("AM saving animal state:",this.state)
     api.updateAnimal(
-      this.state.editedProductId,
-      this.state.editedProduct,
+      this.state.editedAnimalId,
+      this.state.editedAnimal,
       () =>
-        api.getProducts(
-          (products) =>
+        api.getAnimals(
+          (animals) =>
             this.setState({
-              products,
+              animals,
               editedAnimal: {},
               editedAnimalId: null,
             }),

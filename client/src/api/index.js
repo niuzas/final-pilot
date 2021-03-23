@@ -5,8 +5,8 @@ const reqOptions = {
   cache: 'no-cache',
   credentials: 'same-origin',
   headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
   },
   redirect: 'follow',
   referrerPolicy: 'no-referrer',
@@ -15,12 +15,13 @@ const reqOptions = {
 export const getAnimals = async (success, failure) => {
   try {
     const response = await fetch(`${url}/`, reqOptions);
-    const categories = await response.json();
-    success(categories);
+    let animals = await response.json();
+   
+    success(animals);
   } catch (error) {
     failure(error);
   }
-}
+};
 
 export const postAnimal = async (body, success, failure) => {
   try {
@@ -33,9 +34,9 @@ export const postAnimal = async (body, success, failure) => {
     if (!response.ok) throw new Error(data.message);
     success(data);
   } catch (error) {
-    failure(error.message)
+    failure(error.message);
   }
-}
+};
 
 export const updateAnimal = async (id, body, success, failure) => {
   try {
@@ -48,30 +49,29 @@ export const updateAnimal = async (id, body, success, failure) => {
     if (!response.ok) throw new Error(data.message);
     success(data);
   } catch (error) {
-    failure(error.message)
+    failure(error.message);
   }
-}
+};
 
 export const deleteAnimal = async (id, success, failure) => {
   try {
     const response = await fetch(`${url}/${id}`, {
       ...reqOptions,
-      method: 'DELETE'
+      method: 'DELETE',
     });
     const data = await response.json();
     if (!response.ok) throw new Error(data.message);
     success(data);
   } catch (error) {
-    failure(error.message)
+    failure(error.message);
   }
-}
+};
 
 const api = {
   getAnimals,
   postAnimal,
   updateAnimal,
   deleteAnimal,
-
-}
+};
 
 export default api;
