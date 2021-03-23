@@ -35,6 +35,12 @@ class FormCreateAnimal extends React.Component {
             value={this.props.inputData.weight ?? ''}
             handleChange={(value) => this.props.handleInputChange({ weight: value })}
           />
+          <FormGroup
+            name="birthDate"
+            type="date"
+            value={this.props.inputData.birthDate ?? ''}
+            handleChange={(value) => this.props.handleInputChange({ birthDate: value })}
+          />
           <Button>{actionTitle}</Button>
         </div>
       </form>

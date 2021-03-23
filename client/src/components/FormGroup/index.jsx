@@ -31,7 +31,7 @@ class FormGroup extends React.Component {
               {this.createOptions(options)}
             </select> :
             <input
-              type="text"
+              type={type}
               name={name}
               value={value}
               id={hashedName}

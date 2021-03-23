@@ -1,6 +1,6 @@
 .AnimalManagerGrid {
   display: grid;
-  grid-template-columns: auto 400px;
+  grid-template-columns: auto;
   grid-auto-rows: auto;
   gap: 2rem;
 
