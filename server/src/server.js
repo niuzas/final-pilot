@@ -1,19 +1,22 @@
 const express = require('express');
 const config = require('config');
+const cors = require('cors');
 
 const connectDB = require('./db');
 
 const PORT = config.get('PORT');
-const app = express();
+const server = express();
 
 // Connect Database
 connectDB();
 
-// Init Middleware
-app.use(express.json());
+// Init Middlewares
+server.use(cors());
+server.use(express.json());
+
 
 // Define Api Route
-app.use('/api', require('./routes/api'));
+server.use('/api', require('./routes/api'));
 
 // Start Server
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+server.listen(PORT, () => console.log(`Server started on port ${PORT}`));
